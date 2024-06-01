@@ -9,8 +9,7 @@ namespace asio = boost::asio;
 using tcp = boost::asio::ip::tcp;
 
 
-class Session
-	: public std::enable_shared_from_this<Session>
+class Session : public std::enable_shared_from_this<Session>
 {
 public:
 	Session(tcp::socket socket)
@@ -58,9 +57,10 @@ private:
 class Server
 {
 public:
-	Server(boost::asio::io_context& context, short port)
+	Server(boost::asio::io_context& context, short port, std::size_t size)
 		: _acceptor(context, tcp::endpoint(tcp::v4(), port)),
-		_socket(context)
+		_socket(context),
+		_bulkSize(size)
 	{
 		do_accept();
 	}
@@ -82,6 +82,8 @@ private:
 
 	tcp::acceptor _acceptor;
 	tcp::socket _socket;
+
+	std::size_t _bulkSize;
 };
 
 
@@ -104,7 +106,7 @@ int main(int argc, char* argv[])
 			std::cout << "Not a val" << std::endl;
 			exit(1);
 		}
-		port = atoi(argv[1]);
+		port = (unsigned short)strtoul(argv[1], NULL, 0);
 		bulkSize = atoi(argv[2]);
 	}
 	else
@@ -114,7 +116,7 @@ int main(int argc, char* argv[])
 	}
 
 	asio::io_context context;
-	Server server(context, port);
+	Server server(context, port, bulkSize);
 	context.run();
 
 	return 0;
