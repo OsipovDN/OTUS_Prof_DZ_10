@@ -32,6 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10/build/async/cmake_install.cmake")
+endif()
+
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10/build/Debug/asyncServer_gtest.exe")
@@ -42,12 +47,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
     file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10/build/RelWithDebInfo/asyncServer_gtest.exe")
   endif()
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10/build/async/cmake_install.cmake")
-
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

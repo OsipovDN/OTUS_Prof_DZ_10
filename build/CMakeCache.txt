@@ -14,17 +14,28 @@
 # EXTERNAL cache entries
 ########################
 
+//No help, variable specified on the command line.
+BOOST_ROOT:UNINITIALIZED=C:\Libraries\boost
+
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=Boost_DIR-NOTFOUND
+Boost_DIR:PATH=C:/Libraries/boost/lib/cmake/Boost-1.83.0
 
 //Path to a file.
-Boost_INCLUDE_DIR:PATH=Boost_INCLUDE_DIR-NOTFOUND
+Boost_INCLUDE_DIR:PATH=C:/Libraries/boost/include/boost-1_83
 
 //Boost program_options library (debug)
 Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG:FILEPATH=Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG-NOTFOUND
 
 //Boost program_options library (release)
 Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE:FILEPATH=Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE-NOTFOUND
+
+Boost_SYSTEM_LIBRARY_DEBUG:STRING=C:/Libraries/boost/lib/libboost_system-vc142-mt-gd-x64-1_83.lib
+
+Boost_SYSTEM_LIBRARY_RELEASE:STRING=C:/Libraries/boost/lib/libboost_system-vc142-mt-x64-1_83.lib
+
+Boost_THREAD_LIBRARY_DEBUG:STRING=C:/Libraries/boost/lib/libboost_thread-vc142-mt-gd-x64-1_83.lib
+
+Boost_THREAD_LIBRARY_RELEASE:STRING=C:/Libraries/boost/lib/libboost_thread-vc142-mt-x64-1_83.lib
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lib.exe
@@ -242,6 +253,18 @@ asyncServer_BINARY_DIR:STATIC=F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетев�
 //Value Computed by CMake
 asyncServer_SOURCE_DIR:STATIC=F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10
 
+//The directory containing a CMake configuration file for boost_chrono.
+boost_chrono_DIR:PATH=C:/Libraries/boost/lib/cmake/boost_chrono-1.83.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=C:/Libraries/boost/lib/cmake/boost_headers-1.83.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=C:/Libraries/boost/lib/cmake/boost_system-1.83.0
+
+//The directory containing a CMake configuration file for boost_thread.
+boost_thread_DIR:PATH=C:/Libraries/boost/lib/cmake/boost_thread-1.83.0
+
 //Value Computed by CMake
 libasync_BINARY_DIR:STATIC=F:/C++/Kurs/OTUS/C++_Developer_Prof/29_Сетевое взаимодействие/OTUS_Prof_DZ_10/build/async
 
@@ -262,6 +285,14 @@ Boost_DIR-ADVANCED:INTERNAL=1
 Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE
 Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_DEBUG
+Boost_THREAD_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_RELEASE
+Boost_THREAD_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -394,8 +425,12 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Libraries/boost/lib/cmake/Boost-1.83.0/BoostConfig.cmake][cfound components: system thread ][v1.83.0(1.83)]
 //Details about finding GTest
 FIND_PACKAGE_MESSAGE_DETAILS_GTest:INTERNAL=[C:/Libraries/gtest/lib/gtest.lib][C:/Libraries/gtest/include][C:/Libraries/gtest/lib/gtest_main.lib][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GTEST_INCLUDE_DIR
 GTEST_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_LIBRARY
@@ -408,4 +443,12 @@ GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //Patch version
 PATCH_VERSION:INTERNAL=1
+//ADVANCED property for variable: boost_chrono_DIR
+boost_chrono_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_system_DIR
+boost_system_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_thread_DIR
+boost_thread_DIR-ADVANCED:INTERNAL=1
 
