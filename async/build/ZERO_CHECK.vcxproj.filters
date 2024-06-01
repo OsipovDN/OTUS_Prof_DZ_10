@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\build\CMakeFiles\2fcbde46e538d59c4df0c49f34110d06\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A4F6907D-2B47-325E-94FE-50F010385CF3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
