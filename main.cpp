@@ -1,91 +1,9 @@
 ﻿//STL
 #include <iostream>
-//Boost
-#include <boost/asio.hpp>
+#include <algorithm>
 
 #include <libasync.h>
-
-namespace asio = boost::asio;
-using tcp = boost::asio::ip::tcp;
-
-
-class Session : public std::enable_shared_from_this<Session>
-{
-public:
-	Session(tcp::socket socket)
-		: _socket(std::move(socket))
-	{
-	}
-
-	void start()
-	{
-		do_read();
-	}
-
-private:
-	void do_read()
-	{
-		auto self(shared_from_this());
-		_socket.async_read_some(boost::asio::buffer(_data, _max_length),
-			[this, self](boost::system::error_code ec, std::size_t length)
-			{
-				if (!ec)
-				{
-					do_write(length);
-				}
-			});
-	}
-
-	void do_write(std::size_t length)
-	{
-		auto self(shared_from_this());
-		boost::asio::async_write(_socket, boost::asio::buffer(_data, length),
-			[this, self](boost::system::error_code ec, std::size_t /*length*/)
-			{
-				if (!ec)
-				{
-					do_read();
-				}
-			});
-	}
-
-	tcp::socket _socket;
-	enum { _max_length = 1024 };
-	char _data[_max_length];
-};
-
-class Server
-{
-public:
-	Server(boost::asio::io_context& context, short port, std::size_t size)
-		: _acceptor(context, tcp::endpoint(tcp::v4(), port)),
-		_socket(context),
-		_bulkSize(size)
-	{
-		do_accept();
-	}
-
-private:
-	void do_accept()
-	{
-		_acceptor.async_accept(_socket,
-			[this](boost::system::error_code ec)
-			{
-				if (!ec)
-				{
-					std::make_shared<Session>(std::move(_socket))->start();
-				}
-
-				do_accept();
-			});
-	}
-
-	tcp::acceptor _acceptor;
-	tcp::socket _socket;
-
-	std::size_t _bulkSize;
-};
-
+#include <Server.h>
 
 bool isDig(char* arg)
 {
@@ -115,9 +33,9 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-	asio::io_context context;
-	Server server(context, port, bulkSize);
-	context.run();
+	
+	Server server(port, bulkSize);
+	server.run();
 
 	return 0;
 }

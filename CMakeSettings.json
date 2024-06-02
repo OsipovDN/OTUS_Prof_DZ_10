@@ -20,11 +20,6 @@
           "name": "Boost_DIR",
           "value": "C:/Libraries/boost",
           "type": "PATH"
-        },
-        {
-          "name": "boost_asio_DIR",
-          "value": "C:\\Libraries\\boost\\lib",
-          "type": "PATH"
         }
       ]
     }

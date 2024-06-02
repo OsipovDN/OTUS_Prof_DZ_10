@@ -52,6 +52,11 @@ target_link_libraries(
 )
 
 target_include_directories(
+    ${PROJECT_NAME} PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/server
+)
+
+target_include_directories(
     ${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/async/headers
 )
