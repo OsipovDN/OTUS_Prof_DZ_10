@@ -7,10 +7,10 @@
 namespace asio = boost::asio;
 using tcp = boost::asio::ip::tcp;
 
-
+asio::io_context context;
 class Server
 {
-	static asio::io_context context;
+	
 public:
 	Server(short port, std::size_t size)
 		: _acceptor(context, tcp::endpoint(tcp::v4(), port)),

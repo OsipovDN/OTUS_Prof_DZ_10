@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -105,10 +105,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BOOST_SYSTEM_NO_LIB;BOOST_THREAD_NO_LIB;BOOST_CHRONO_NO_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -150,10 +150,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BOOST_SYSTEM_NO_LIB;BOOST_THREAD_NO_LIB;BOOST_CHRONO_NO_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -176,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -195,10 +195,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BOOST_SYSTEM_NO_LIB;BOOST_THREAD_NO_LIB;BOOST_CHRONO_NO_LIB;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -221,7 +221,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -239,10 +239,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BOOST_SYSTEM_NO_LIB;BOOST_THREAD_NO_LIB;BOOST_CHRONO_NO_LIB;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\build;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\server;F:\C++\Kurs\OTUS\C++_Developer_Prof\29_Сетевое взаимодействие\OTUS_Prof_DZ_10\async\headers;C:\Libraries\boost\include\boost-1_83;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
