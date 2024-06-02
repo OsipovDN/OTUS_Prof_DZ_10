@@ -2,7 +2,6 @@
 #include <iostream>
 #include <algorithm>
 
-#include <libasync.h>
 #include <Server.h>
 
 bool isDig(char* arg)

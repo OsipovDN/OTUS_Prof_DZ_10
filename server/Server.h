@@ -10,11 +10,10 @@ using tcp = boost::asio::ip::tcp;
 asio::io_context context;
 class Server
 {
-	
+
 public:
 	Server(short port, std::size_t size)
-		: _acceptor(context, tcp::endpoint(tcp::v4(), port)),
-		_socket(context),
+		: _acceptor(context, tcp::endpoint(boost::asio::ip::address::from_string("127.0.0.1"), port)),
 		_bulkSize(size)
 	{
 		do_accept();
@@ -26,12 +25,13 @@ public:
 private:
 	void do_accept()
 	{
-		_acceptor.async_accept(_socket,
-			[this](boost::system::error_code ec)
+		_acceptor.async_accept(
+			[this](boost::system::error_code ec, tcp::socket socket)
 			{
 				if (!ec)
 				{
-					std::make_shared<Session>(std::move(_socket))->start();
+					std::cout << "Conection\n";
+					std::make_shared<Session>(std::move(socket), _bulkSize)->start();
 				}
 
 				do_accept();
@@ -39,7 +39,6 @@ private:
 	}
 
 	tcp::acceptor _acceptor;
-	tcp::socket _socket;
 
 	std::size_t _bulkSize;
 };
