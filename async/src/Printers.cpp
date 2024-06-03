@@ -75,6 +75,8 @@ void Printer::printToCOut()
 {
 	while (true)
 	{
+		if (_tasks->isFinish() && _tasks->empty())
+			return;
 		auto cmd = _tasks->front();
 		_tasks->pop();
 		_completeTasks.push(cmd);
@@ -84,8 +86,6 @@ void Printer::printToCOut()
 			std::cout << str << ",";
 			});
 		std::cout << *(cmd.cend() - 1) << std::endl;
-		if (_tasks->isFinish() && _tasks->empty() && _quite)
-			return;
 	}
 }
 void Printer::print(Command& c)const {

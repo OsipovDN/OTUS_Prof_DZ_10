@@ -10,7 +10,6 @@ using tcp = boost::asio::ip::tcp;
 asio::io_context context;
 class Server
 {
-
 public:
 	Server(short port, std::size_t size)
 		: _acceptor(context, tcp::endpoint(boost::asio::ip::address::from_string("127.0.0.1"), port)),
@@ -30,7 +29,6 @@ private:
 			{
 				if (!ec)
 				{
-					std::cout << "Conection\n";
 					std::make_shared<Session>(std::move(socket), _bulkSize)->start();
 				}
 
