@@ -31,7 +31,6 @@ private:
 				{
 					std::make_shared<Session>(std::move(socket), _bulkSize)->start();
 				}
-
 				do_accept();
 			});
 	}

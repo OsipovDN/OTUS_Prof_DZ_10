@@ -22,7 +22,6 @@ public:
 	~Session()
 	{
 		async::disconnect(_handle);
-		_socket.close();
 	}
 
 private:
