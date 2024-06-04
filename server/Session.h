@@ -37,6 +37,7 @@ private:
 					if (_handle == nullptr)
 					{
 						_handle = async::connect(_bulkSize);
+						std::cout << "Create handle\n";
 					}
 					async::receive(_handle, msg.c_str(), msg.size());
 				}

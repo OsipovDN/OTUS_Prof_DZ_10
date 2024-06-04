@@ -6,6 +6,7 @@ namespace msg {
 	void MassageQueue::push(std::vector <std::string>& massage)
 	{
 		std::unique_lock<std::mutex> lg(_mut);
+		_finish = false;
 		_queue.push(massage);
 		//print(massage);
 		lg.unlock();
