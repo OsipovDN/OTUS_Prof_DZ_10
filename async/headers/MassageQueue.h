@@ -23,7 +23,7 @@ namespace msg {
 		MassageQueue() :_finish(false) {};
 		MassageQueue(MassageQueue&) = delete;
 		MassageQueue operator =(MassageQueue&) = delete;
-		~MassageQueue() = default;
+		~MassageQueue() { std::cout << "dtor MassageQueue\n"; };
 
 		//IQueue
 		void push(Command& massage) override;

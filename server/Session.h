@@ -21,6 +21,7 @@ public:
 
 	~Session()
 	{
+		std::cout << "dtor Session\n";
 		async::disconnect(_handle);
 	}
 

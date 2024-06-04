@@ -17,6 +17,7 @@ public:
 	{
 		do_accept();
 	}
+	~Server() { std::cout << "dtor Server\n"; }
 
 private:
 	void do_accept()

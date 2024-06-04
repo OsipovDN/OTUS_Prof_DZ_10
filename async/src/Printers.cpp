@@ -14,7 +14,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 
 Printer::~Printer()
 {
-	std::cout << "dtor" << std::endl;
+	std::cout << "dtor Printer\n";
 	{
 		std::unique_lock<std::mutex> lock(_mut);
 		_quite = true;

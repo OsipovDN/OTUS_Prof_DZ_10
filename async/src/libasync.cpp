@@ -13,7 +13,7 @@ namespace async {
 	handle_t connect(std::size_t bulk) {
 
 		static auto msgSender = std::make_shared<msg::MassageQueue>();
-		static auto filePrinter = std::make_unique<Printer>(msgSender, 2);
+		static auto filePrinter = std::make_shared<Printer>(msgSender, 2);
 
 		return std::make_unique<Controller::CommandController>(msgSender, bulk).release();
 	}
