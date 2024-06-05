@@ -10,12 +10,32 @@
 
 namespace async {
 
+	class Handler {
+	public:
+		Handler():_prt(nullptr), _que(nullptr){};
+		void setPrinter(std::shared_ptr<IPrinter> p) { _prt = p; }
+		void setQueue(std::shared_ptr<IQueue> q) { _que = q; }
+		std::shared_ptr<IPrinter> getPrinter() {return _prt; }
+		std::shared_ptr<IQueue> getQueue() { return _que; }
+		void remove() 
+		{
+			_prt = nullptr;
+			_que = nullptr;
+		}
+
+	private:
+		std::shared_ptr<IPrinter> _prt;
+		std::shared_ptr<IQueue> _que;
+	};
+
+	Handler h;
+
 	handle_t connect(std::size_t bulk) {
 
-		static auto msgSender = std::make_shared<msg::MassageQueue>();
-		static auto filePrinter = std::make_shared<Printer>(msgSender, 2);
+		h.setQueue (std::make_shared<msg::MassageQueue>());
+		h.setPrinter(std::make_shared<Printer>(h.getQueue(), 2));
 
-		return std::make_unique<Controller::CommandController>(msgSender, bulk).release();
+		return std::make_unique<Controller::CommandController>(h.getQueue(), bulk).release();
 	}
 
 	void receive(handle_t handler, const char* data, std::size_t size) {
@@ -36,6 +56,7 @@ namespace async {
 
 	void disconnect(handle_t handler) {
 		receive(std::move(handler), "EOF", 3);
+		h.remove();
 	}
 
 }

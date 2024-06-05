@@ -4,6 +4,7 @@ namespace Controller
 {
 	CommandController::CommandController(std::shared_ptr<IQueue> q, std::size_t count) :_scopeBlockCount(0), _isOpen(false)
 	{
+		std::cout << "Controller created!" << std::endl;
 		_msgQueue = q;
 		_statPull.reserve(count);
 	}

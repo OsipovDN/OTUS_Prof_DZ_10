@@ -5,6 +5,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 	_tasks(q),
 	_quite(false)
 {
+	std::cout << "Printer created!" << std::endl;
 	_workers.emplace_back(&Printer::printToCOut, this);
 	for (size_t i = 0; i < thr_count; ++i)
 	{
@@ -14,7 +15,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 
 Printer::~Printer()
 {
-	std::cout << "dtor Printer\n";
+	std::cout << "Printer dtor\n";
 	{
 		std::unique_lock<std::mutex> lock(_mut);
 		_quite = true;
@@ -69,14 +70,19 @@ void Printer::printToStream()
 			file.close();
 		}
 	}
+	
 }
 
 void Printer::printToCOut()
 {
 	while (true)
 	{
+		std::cout << "startprint to cOut" << std::endl;
 		if (_tasks->isFinish() && _tasks->empty())
+		{
+			std::cout << "coutPrint is done" << std::endl;
 			return;
+		}
 		auto cmd = _tasks->front();
 		_tasks->pop();
 		_completeTasks.push(cmd);
