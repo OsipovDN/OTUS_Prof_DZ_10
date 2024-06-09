@@ -10,32 +10,32 @@
 
 namespace async {
 
-	class Handler {
+	class HandlerKeeper {
 	public:
-		Handler():_prt(nullptr), _que(nullptr){};
-		void setPrinter(std::shared_ptr<IPrinter> p) { _prt = p; }
-		void setQueue(std::shared_ptr<IQueue> q) { _que = q; }
-		std::shared_ptr<IPrinter> getPrinter() {return _prt; }
-		std::shared_ptr<IQueue> getQueue() { return _que; }
+		HandlerKeeper():_printerPtr(nullptr),_queuePtr(nullptr){};
+		void setPrinter(std::shared_ptr<IPrinter> printerPtr) { _printerPtr = printerPtr; }
+		void setQueue(std::shared_ptr<IQueue> queuePtr) { _queuePtr = queuePtr; }
+		std::shared_ptr<IPrinter> getPrinter() {return _printerPtr; }
+		std::shared_ptr<IQueue> getQueue() { return _queuePtr; }
 		void remove() 
 		{
-			_prt = nullptr;
-			_que = nullptr;
+			_printerPtr = nullptr;
+			_queuePtr = nullptr;
 		}
 
 	private:
-		std::shared_ptr<IPrinter> _prt;
-		std::shared_ptr<IQueue> _que;
+		std::shared_ptr<IPrinter> _printerPtr;
+		std::shared_ptr<IQueue> _queuePtr;
 	};
 
-	Handler h;
+	HandlerKeeper helper;
 
 	handle_t connect(std::size_t bulk) {
 
-		h.setQueue (std::make_shared<msg::MassageQueue>());
-		h.setPrinter(std::make_shared<Printer>(h.getQueue(), 2));
+		helper.setQueue (std::make_shared<msg::MassageQueue>());
+		helper.setPrinter(std::make_shared<Printer>(helper.getQueue(), 2));
 
-		return std::make_unique<Controller::CommandController>(h.getQueue(), bulk).release();
+		return std::make_unique<Controller::CommandController>(helper.getQueue(), bulk).release();
 	}
 
 	void receive(handle_t handler, const char* data, std::size_t size) {
@@ -56,7 +56,7 @@ namespace async {
 
 	void disconnect(handle_t handler) {
 		receive(std::move(handler), "EOF", 3);
-		h.remove();
+		helper.remove();
 	}
 
 }
