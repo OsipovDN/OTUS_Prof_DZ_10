@@ -94,5 +94,5 @@ include(CPack)
 
 enable_testing()
 
-add_test(asyncServer_gtest async_gtest)
+add_test(asyncServer_gtest asyncServer_gtest)
 
