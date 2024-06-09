@@ -2,8 +2,12 @@
 #include <iostream>
 #include <algorithm>
 
-#include <libasync.h>
+//Boost
+#include <boost/asio.hpp>
+
 #include <Server.h>
+
+namespace asio = boost::asio;
 
 bool isDig(char* arg)
 {
@@ -33,9 +37,11 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
+	asio::io_context context;
 	
-	Server server(port, bulkSize);
-	server.run();
+	Server server(context, port, bulkSize);
+	context.run();
 
 	return 0;
 }
+

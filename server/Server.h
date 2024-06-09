@@ -7,22 +7,18 @@
 namespace asio = boost::asio;
 using tcp = boost::asio::ip::tcp;
 
-
 class Server
 {
-	static asio::io_context context;
 public:
-	Server(short port, std::size_t size)
-		: _acceptor(context, tcp::endpoint(tcp::v4(), port)),
-		_socket(context),
+	Server(asio::io_context& cont, short port, std::size_t size)
+		: _acceptor(cont, tcp::endpoint(boost::asio::ip::address::from_string("127.0.0.1"), port)),
+		_socket(cont),
 		_bulkSize(size)
 	{
 		do_accept();
 	}
-	void run()
-	{
-		context.run();
-	}
+	~Server() { std::cout << "dtor Server\n"; }
+
 private:
 	void do_accept()
 	{
@@ -31,9 +27,9 @@ private:
 			{
 				if (!ec)
 				{
-					std::make_shared<Session>(std::move(_socket))->start();
+					std::cout << "Connection\n";
+					std::make_shared<Session>(std::move(_socket), _bulkSize)->start();
 				}
-
 				do_accept();
 			});
 	}

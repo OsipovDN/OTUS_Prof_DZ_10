@@ -1,10 +1,16 @@
 #pragma once
+#include <libasync.h>
+
+namespace asio = boost::asio;
+using tcp = boost::asio::ip::tcp;
+
 
 class Session : public std::enable_shared_from_this<Session>
 {
 public:
-	Session(tcp::socket socket)
-		: _socket(std::move(socket))
+	Session(tcp::socket socket, std::size_t size)
+		: _socket(std::move(socket)),
+		_bulkSize(size)
 	{
 	}
 
@@ -13,34 +19,36 @@ public:
 		do_read();
 	}
 
+	~Session()
+	{
+		std::cout << "dtor Session\n";
+		async::disconnect(_handle);
+	}
+
 private:
 	void do_read()
 	{
 		auto self(shared_from_this());
-		_socket.async_read_some(boost::asio::buffer(_data, _max_length),
+		_socket.async_read_some(boost::asio::buffer(_data, _maxLength),
 			[this, self](boost::system::error_code ec, std::size_t length)
 			{
 				if (!ec)
 				{
-					do_write(length);
-				}
-			});
-	}
-
-	void do_write(std::size_t length)
-	{
-		auto self(shared_from_this());
-		boost::asio::async_write(_socket, boost::asio::buffer(_data, length),
-			[this, self](boost::system::error_code ec, std::size_t /*length*/)
-			{
-				if (!ec)
-				{
-					do_read();
+					auto msg = std::string{ _data, length };
+					if (_handle == nullptr)
+					{
+						_handle = async::connect(_bulkSize);
+						std::cout << "Create handle\n";
+					}
+					async::receive(_handle, msg.c_str(), msg.size());
 				}
 			});
 	}
 
 	tcp::socket _socket;
-	enum { _max_length = 1024 };
-	char _data[_max_length];
+	enum { _maxLength = 1024 };
+	char _data[_maxLength];
+
+	std::size_t _bulkSize;
+	async::handle_t _handle = nullptr;
 };
