@@ -5,6 +5,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 	_tasks(q),
 	_quite(false)
 {
+	std::cout << __FUNCTION__ << std::endl;
 	_workers.emplace_back(&Printer::printToCOut, this);
 	for (size_t i = 0; i < thr_count; ++i)
 	{
@@ -14,7 +15,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 
 Printer::~Printer()
 {
-	std::cout << "dtor Printer\n";
+	std::cout << __FUNCTION__ << std::endl;
 	{
 		std::unique_lock<std::mutex> lock(_mut);
 		_quite = true;

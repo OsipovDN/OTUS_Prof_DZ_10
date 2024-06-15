@@ -15,9 +15,11 @@ public:
 		_socket(cont),
 		_bulkSize(size)
 	{
+		std::cout << __FUNCTION__ << std::endl;
 		do_accept();
 	}
-	~Server() { std::cout << "dtor Server\n"; }
+	~Server() { std::cout << __FUNCTION__ << std::endl;
+	}
 
 private:
 	void do_accept()

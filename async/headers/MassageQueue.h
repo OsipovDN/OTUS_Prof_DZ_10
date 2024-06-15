@@ -20,10 +20,10 @@ namespace msg {
 		std::mutex _mut;
 
 	public:
-		MassageQueue() :_finish(false) {};
+		MassageQueue() :_finish(false) { std::cout << __FUNCTION__ << std::endl; };
 		MassageQueue(MassageQueue&) = delete;
 		MassageQueue operator =(MassageQueue&) = delete;
-		~MassageQueue() { std::cout << "dtor MassageQueue\n"; };
+		~MassageQueue() { std::cout << __FUNCTION__ <<std::endl; };
 
 		//IQueue
 		void push(Command& massage) override;
