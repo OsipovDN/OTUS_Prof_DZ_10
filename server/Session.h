@@ -44,7 +44,7 @@ private:
 				msg += "EOF\n";
 				//std::cout << "message: " << msg;
 				async::receive(self->_handle, msg.c_str(), msg.size());
-
+				self->do_read();
 			}
 		});
 	}
