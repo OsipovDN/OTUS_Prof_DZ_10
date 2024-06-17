@@ -18,7 +18,8 @@ public:
 		std::cout << __FUNCTION__ << std::endl;
 		do_accept();
 	}
-	~Server() { std::cout << __FUNCTION__ << std::endl;
+	~Server() {
+		std::cout << __FUNCTION__ << std::endl;
 	}
 
 private:
@@ -30,7 +31,9 @@ private:
 				if (!ec)
 				{
 					std::cout << "Connection\n";
-					std::make_shared<Session>(std::move(_socket), _bulkSize)->start();
+					auto session = std::make_shared<Session>(std::move(_socket), _bulkSize);
+					_session.push_back(session);
+					session->start();
 				}
 				do_accept();
 			});
@@ -38,6 +41,7 @@ private:
 
 	tcp::acceptor _acceptor;
 	tcp::socket _socket;
+	std::vector<std::shared_ptr <Session>> _session;
 
 	std::size_t _bulkSize;
 };

@@ -32,7 +32,7 @@ private:
 public:
 
 	Printer(std::shared_ptr<IQueue> q,std::size_t thr_count);
-	~Printer();
+	~Printer()override;
 
 	void printToStream() override;
 	void printToCOut() override;

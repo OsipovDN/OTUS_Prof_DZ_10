@@ -11,8 +11,6 @@
 
 using PullBlock = std::vector<std::string>;
 
-class PackageSender;
-
 namespace Controller
 {
 	class CommandController: public IController {
@@ -27,13 +25,15 @@ namespace Controller
 
 		bool isScope(const std::string& str);
 		void addStatBlock(const std::string& str);
-		void addDynBlock(PullBlock& obj);
+		void addDynBlock(const PullBlock& obj);
+		
 
 	public:
 
 		CommandController(std::shared_ptr<IQueue> q,std::size_t count);
-		~CommandController() { std::cout << __FUNCTION__ << std::endl; };
-		virtual void addCommand(std::string &s) override;
+		~CommandController() override { std::cout << __FUNCTION__ << std::endl; };
+		void addCommand(const std::string &s) override;
+		void finish() { _msgQueue->finish(); }
 
 	};
 }

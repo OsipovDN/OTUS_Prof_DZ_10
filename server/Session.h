@@ -12,6 +12,11 @@ public:
 		: _socket(std::move(socket)),
 		_bulkSize(size)
 	{
+		if (_handle == nullptr)
+		{
+			std::cout << "Create handle\n";
+			_handle = async::connect(_bulkSize);
+		}
 		std::cout << __FUNCTION__ << std::endl;
 	}
 
@@ -29,25 +34,23 @@ public:
 private:
 	void do_read()
 	{
-		_socket.async_read_some(boost::asio::buffer(_data, _maxLength),
+
+		_socket.async_read_some(boost::asio::buffer(_data, 1024),
 			[self = shared_from_this()](boost::system::error_code ec, std::size_t length)
 		{
 			if (!ec)
 			{
 				auto msg = std::string{ self->_data, length };
-				if (self->_handle == nullptr)
-				{
-					self->_handle = async::connect(self->_bulkSize);
-					std::cout << "Create handle\n";
-				}
+				msg += "EOF\n";
+				//std::cout << "message: " << msg;
 				async::receive(self->_handle, msg.c_str(), msg.size());
+
 			}
 		});
 	}
 
 	tcp::socket _socket;
-	enum { _maxLength = 1024 };
-	char _data[_maxLength];
+	char _data[1024];
 
 	std::size_t _bulkSize;
 	async::handle_t _handle = nullptr;

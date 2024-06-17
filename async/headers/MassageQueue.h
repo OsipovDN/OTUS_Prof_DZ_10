@@ -23,11 +23,11 @@ namespace msg {
 		MassageQueue() :_finish(false) { std::cout << __FUNCTION__ << std::endl; };
 		MassageQueue(MassageQueue&) = delete;
 		MassageQueue operator =(MassageQueue&) = delete;
-		~MassageQueue() { std::cout << __FUNCTION__ <<std::endl; };
+		~MassageQueue() override { std::cout << __FUNCTION__ <<std::endl; };
 
 		//IQueue
 		void push(Command& massage) override;
-		Command& front() override;
+		Command front() override;
 		void pop() override;
 		bool empty() const override;
 		bool isFinish()const override { return _finish; };

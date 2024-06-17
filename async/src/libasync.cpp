@@ -36,6 +36,8 @@ namespace async {
 
 	void disconnect(handle_t handler) {
 		receive(std::move(handler), "EOF", 3);
+		auto controller = static_cast<Controller::CommandController*>(handler);
+		controller->finish();
 	}
 
 }
