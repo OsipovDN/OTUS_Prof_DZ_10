@@ -13,13 +13,14 @@ namespace msg {
 	class MassageQueue :public IQueue
 	{
 	private:
-		//Очередь сообщений для печати
+		//ГЋГ·ГҐГ°ГҐГ¤Гј Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Г¤Г«Гї ГЇГҐГ·Г ГІГЁ
 		std::queue<Command> _queue;
 		bool _finish;
 
 		std::mutex _mut;
 
 	public:
+
 		MassageQueue() :_finish(false) { std::cout << __FUNCTION__ << std::endl; };
 		MassageQueue(MassageQueue&) = delete;
 		MassageQueue operator =(MassageQueue&) = delete;

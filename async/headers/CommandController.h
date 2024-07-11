@@ -34,6 +34,5 @@ namespace Controller
 		~CommandController() override { std::cout << __FUNCTION__ << std::endl; };
 		void addCommand(const std::string &s) override;
 		void finish() { _msgQueue->finish(); }
-
 	};
 }

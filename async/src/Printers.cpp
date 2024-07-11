@@ -6,6 +6,7 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 	_quite(false)
 {
 	std::cout << __FUNCTION__ << std::endl;
+
 	_workers.emplace_back(&Printer::printToCOut, this);
 	for (size_t i = 0; i < thr_count; ++i)
 	{
@@ -15,7 +16,9 @@ Printer::Printer(std::shared_ptr<IQueue> q, size_t thr_count) :
 
 Printer::~Printer()
 {
+
 	std::cout << __FUNCTION__ << std::endl;
+
 	{
 		std::unique_lock<std::mutex> lock(_mut);
 		_quite = true;
@@ -71,14 +74,19 @@ void Printer::printToStream()
 
 		}
 	}
+	
 }
 
 void Printer::printToCOut()
 {
 	while (true)
 	{
+		std::cout << "startprint to cOut" << std::endl;
 		if (_tasks->isFinish() && _tasks->empty())
+		{
+			std::cout << "coutPrint is done" << std::endl;
 			return;
+
 		if (!_tasks->empty())
 		{
 			auto cmd = _tasks->front();

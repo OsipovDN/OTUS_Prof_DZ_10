@@ -11,7 +11,7 @@ set (CMAKE_CXX_STANDARD 17)
 add_subdirectory (async)
 
 find_package(GTest)
-find_package (Boost 1.83 REQUIRED COMPONENTS system thread)
+find_package (Boost 1.74 REQUIRED COMPONENTS system thread)
 
 add_executable (${PROJECT_NAME} main.cpp)
 add_executable(asyncServer_gtest test/asyncServer_gtest.cpp)
@@ -94,5 +94,5 @@ include(CPack)
 
 enable_testing()
 
-add_test(asyncServer_gtest async_gtest)
+add_test(asyncServer_gtest asyncServer_gtest)
 
