@@ -15,12 +15,9 @@ public:
 		_socket(cont),
 		_bulkSize(size)
 	{
-		std::cout << __FUNCTION__ << std::endl;
 		do_accept();
 	}
-	~Server() {
-		std::cout << __FUNCTION__ << std::endl;
-	}
+	~Server() { std::cout << "dtor Server\n"; }
 
 private:
 	void do_accept()
@@ -31,9 +28,7 @@ private:
 				if (!ec)
 				{
 					std::cout << "Connection\n";
-					auto session = std::make_shared<Session>(std::move(_socket), _bulkSize);
-					_session.push_back(session);
-					session->start();
+					std::make_shared<Session>(std::move(_socket), _bulkSize)->start();
 				}
 				do_accept();
 			});
@@ -41,7 +36,6 @@ private:
 
 	tcp::acceptor _acceptor;
 	tcp::socket _socket;
-	std::vector<std::shared_ptr <Session>> _session;
 
 	std::size_t _bulkSize;
 };
