@@ -5,7 +5,7 @@
 //Boost
 #include <boost/asio.hpp>
 
-#include <Server.h>
+#include "Server.h"
 
 namespace asio = boost::asio;
 
@@ -18,29 +18,24 @@ bool isDig(char* arg)
 
 int main(int argc, char* argv[])
 {
-	int bulkSize;
-	short port;
-
-	if (argc == 3)
+	try
 	{
-		if (!isDig(argv[1]) || !isDig(argv[2]))
+		if (argc != 3 || !isDig(argv[1]) || !isDig(argv[2]))
 		{
-			std::cout << "Not a val" << std::endl;
-			exit(1);
+			std::cout << "Something is wrong" << std::endl;
+			return -1;
 		}
-		port = (unsigned short)strtoul(argv[1], NULL, 0);
-		bulkSize = atoi(argv[2]);
-	}
-	else
-	{
-		std::cout << "Something is wrong" << std::endl;
-		exit(1);
-	}
+		auto port = static_cast<unsigned short>(atoi(argv[1]));
+		std::size_t bulkSize = static_cast<std::size_t>(atoi(argv[2]));
 
-	asio::io_context context;
-	
-	Server server(context, port, bulkSize);
-	context.run();
+		asio::io_context context;
+		Server server(context, port, bulkSize);
+		context.run();
+	}
+	catch (const std::exception& ex)
+	{
+		std::cerr << "Exception: " << ex.what() << std::endl;
+	}
 
 	return 0;
 }
