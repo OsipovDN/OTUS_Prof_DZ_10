@@ -35,9 +35,10 @@ namespace Controller
 		CommandController(std::shared_ptr<IQueue> q,std::size_t count);
 		~CommandController() override { std::cout << __FUNCTION__ << std::endl; };
 		void addCommand(const std::string &s) override;
-		void finish()override
-		{ 
+		void finish()override 
+    {
 			_msgQueue->finish(); 
 		}
+
 	};
 }
