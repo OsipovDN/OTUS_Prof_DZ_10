@@ -42,7 +42,7 @@ namespace Controller
 			_dynamPull.emplace_back(it);
 	}
 
-	void CommandController::addCommand(std::string& cmd)
+	void CommandController::addCommand(const std::string& cmd)
 	{
 		if (isScope(cmd))
 		{
