@@ -27,7 +27,8 @@ namespace Controller
 
 		bool isScope(const std::string& str);
 		void addStatBlock(const std::string& str);
-		void addDynBlock(PullBlock& obj);
+		void addDynBlock(const PullBlock& obj);
+		
 
 	public:
 
