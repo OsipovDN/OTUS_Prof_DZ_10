@@ -48,7 +48,6 @@ private:
 	tcp::socket _socket;
 	enum { _maxLength = 1024 };
 	char _data[_maxLength];
-
 	std::size_t _bulkSize;
 	async::handle_t _handle = nullptr;
 };
