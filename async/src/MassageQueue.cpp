@@ -8,9 +8,11 @@ namespace msg {
 		std::unique_lock<std::mutex> lg(_mut);
 		_finish = false;
 		_queue.push(massage);
+		//print(massage);
+		lg.unlock();
 	}
 
-	Command MassageQueue::front()
+	Command& MassageQueue::front()
 	{
 		std::unique_lock<std::mutex> lg(_mut);
 		return _queue.front();
@@ -25,7 +27,7 @@ namespace msg {
 	bool MassageQueue::empty() const { return _queue.empty(); }
 
 	void MassageQueue::print(Command& c)const {
-		for (const auto& cmd : c)
+		for (auto cmd : c)
 		{
 			std::cout << cmd << " ";
 		}

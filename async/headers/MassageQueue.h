@@ -13,22 +13,21 @@ namespace msg {
 	class MassageQueue :public IQueue
 	{
 	private:
-		//ГЋГ·ГҐГ°ГҐГ¤Гј Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Г¤Г«Гї ГЇГҐГ·Г ГІГЁ
+		//Очередь сообщений для печати
 		std::queue<Command> _queue;
 		bool _finish;
 
 		std::mutex _mut;
 
 	public:
-
-		MassageQueue() :_finish(false) { std::cout << __FUNCTION__ << std::endl; };
-		MassageQueue(MassageQueue&) = delete;
-		MassageQueue operator =(MassageQueue&) = delete;
-		~MassageQueue() override { std::cout << __FUNCTION__ <<std::endl; };
+		MassageQueue() :_finish(false) {
+			std::cout << "Queue created!" << std::endl;
+		};
+		~MassageQueue() { std::cout << "MassageQueue dtor\n"; };
 
 		//IQueue
 		void push(Command& massage) override;
-		Command front() override;
+		Command& front() override;
 		void pop() override;
 		bool empty() const override;
 		bool isFinish()const override { return _finish; };
