@@ -4,7 +4,7 @@ namespace Controller
 {
 	CommandController::CommandController(std::shared_ptr<IQueue> q, std::size_t count) :_scopeBlockCount(0), _isOpen(false)
 	{
-		std::cout << "Controller created!" << std::endl;
+		std::cout << __FUNCTION__ << std::endl;
 		_msgQueue = q;
 		_statPull.reserve(count);
 	}
@@ -36,13 +36,13 @@ namespace Controller
 		}
 	}
 
-	void CommandController::addDynBlock(PullBlock& obj)
+	void CommandController::addDynBlock(const PullBlock& obj)
 	{
 		for (const auto& it : obj)
 			_dynamPull.emplace_back(it);
 	}
 
-	void CommandController::addCommand(std::string& cmd)
+	void CommandController::addCommand(const std::string& cmd)
 	{
 		if (isScope(cmd))
 		{
@@ -73,9 +73,7 @@ namespace Controller
 				_msgQueue->push(_statPull);
 				_statPull.clear();
 			}
-			_msgQueue->finish();
+			//_msgQueue->finish();
 		}
-
 	}
-
 }
