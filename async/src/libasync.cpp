@@ -20,6 +20,7 @@ namespace async {
 	void receive(handle_t handler, const char* data, std::size_t size) {
 
 		auto controller = reinterpret_cast<Controller::CommandController*>(handler);
+
 		if (handler == nullptr)
 			return;
 
@@ -35,6 +36,7 @@ namespace async {
 
 	void disconnect(handle_t handler) {
 		receive(std::move(handler), "EOF", 3);
+
 		auto controller = reinterpret_cast<Controller::CommandController*>(handler);
 		controller->finish();
 	}
